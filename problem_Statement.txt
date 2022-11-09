@@ -1,0 +1,11 @@
+                                                        Hostel Management System
+
+	•	In our mini project we have the following entities:-
+	   ⁃	student
+	   ⁃	room
+	   ⁃	track
+	   ⁃	Admin
+	•	The following student details are stored such as USN ,Name ,Address ,Semester ,Phone No ,Room No. in student entity.
+	•	The following room details are stored such as Room no.,Room type ,Room Addons, Occupant Name in room entity.
+	•	The following tracking details are stored such as tracking ID ,USN ,Time ,Track Status in track entity. 
+	•	Admin has all the student ,room ,track details.
