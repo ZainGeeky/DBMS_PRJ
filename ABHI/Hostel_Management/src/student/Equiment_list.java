@@ -146,6 +146,14 @@ public class Equiment_list extends JFrame {
 		contentPane.add(btnClear);
 		
 		JButton btnBack = new JButton("BACK");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MENU f1 = new MENU();
+				f1.setVisible(true);
+				
+			}
+		});
 		btnBack.setBounds(10, 11, 117, 29);
 		contentPane.add(btnBack);
 		

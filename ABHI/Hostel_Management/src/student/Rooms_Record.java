@@ -20,13 +20,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Equiment_list extends JFrame {
+public class Rooms_Record extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField EID;
-	private JTextField ENAME;
-	private JTextField EPRICE;
-	private JTextField EROOMID;
+	private JTextField RID;
+	private JTextField RFLR;
+	private JTextField RTYP;
+	private JTextField RSUSN;
 	private JTable table;
 	private DefaultTableModel model;
 	private Object[] row;
@@ -38,7 +38,7 @@ public class Equiment_list extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Equiment_list frame = new Equiment_list();
+					Rooms_Record frame = new Rooms_Record();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class Equiment_list extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Equiment_list() {
+	public Rooms_Record() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 758, 484);
 		contentPane = new JPanel();
@@ -69,37 +69,37 @@ public class Equiment_list extends JFrame {
 		lblNewLabel.setBounds(18, 34, 61, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblName = new JLabel("NAME :");
+		JLabel lblName = new JLabel("FLOOR :");
 		lblName.setBounds(18, 62, 61, 16);
 		panel.add(lblName);
 		
-		JLabel lblP = new JLabel("PRICE :");
+		JLabel lblP = new JLabel("TYPE :");
 		lblP.setBounds(18, 90, 84, 16);
 		panel.add(lblP);
 		
-		JLabel lblEmail = new JLabel("ROOM ID :");
-		lblEmail.setBounds(18, 118, 91, 16);
+		JLabel lblEmail = new JLabel("STUDENT USN :");
+		lblEmail.setBounds(18, 118, 97, 16);
 		panel.add(lblEmail);
 		
-		EID = new JTextField();
-		EID.setBounds(112, 29, 164, 26);
-		panel.add(EID);
-		EID.setColumns(10);
+		RID = new JTextField();
+		RID.setBounds(112, 29, 164, 26);
+		panel.add(RID);
+		RID.setColumns(10);
 		
-		ENAME = new JTextField();
-		ENAME.setColumns(10);
-		ENAME.setBounds(112, 57, 164, 26);
-		panel.add(ENAME);
+		RFLR = new JTextField();
+		RFLR.setColumns(10);
+		RFLR.setBounds(112, 57, 164, 26);
+		panel.add(RFLR);
 		
-		EPRICE = new JTextField();
-		EPRICE.setColumns(10);
-		EPRICE.setBounds(112, 85, 164, 26);
-		panel.add(EPRICE);
+		RTYP = new JTextField();
+		RTYP.setColumns(10);
+		RTYP.setBounds(112, 85, 164, 26);
+		panel.add(RTYP);
 		
-		EROOMID = new JTextField();
-		EROOMID.setColumns(10);
-		EROOMID.setBounds(112, 113, 164, 26);
-		panel.add(EROOMID);
+		RSUSN = new JTextField();
+		RSUSN.setColumns(10);
+		RSUSN.setBounds(112, 113, 164, 26);
+		panel.add(RSUSN);
 		
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -109,17 +109,17 @@ public class Equiment_list extends JFrame {
 				
 				
 				model.addRow(row);
-				row[0]=EID.getText();
-				row[1]=ENAME.getText();
-				row[2]=EPRICE.getText();
-				row[3]=EROOMID.getText();
+				row[0]=RID.getText();
+				row[1]=RFLR.getText();
+				row[2]=RTYP.getText();
+				row[3]=RSUSN.getText();
 				
 				
 				
-				EID.setText("");
-				ENAME.setText("");
-				EPRICE.setText("");
-				EROOMID.setText("");
+				RID.setText("");
+				RFLR.setText("");
+				RTYP.setText("");
+				RSUSN.setText("");
 				
 			
 			}
@@ -135,7 +135,7 @@ public class Equiment_list extends JFrame {
 		btnDelete.setBounds(214, 314, 117, 29);
 		contentPane.add(btnDelete);
 		
-		JLabel lblNewLabel_1 = new JLabel("EQUIPMENT RECORD");
+		JLabel lblNewLabel_1 = new JLabel("ROOMS RECORD");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
 		lblNewLabel_1.setBounds(0, 17, 758, 16);
@@ -146,6 +146,14 @@ public class Equiment_list extends JFrame {
 		contentPane.add(btnClear);
 		
 		JButton btnBack = new JButton("BACK");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MENU f1 = new MENU();
+				f1.setVisible(true);
+				
+			}
+		});
 		btnBack.setBounds(10, 11, 117, 29);
 		contentPane.add(btnBack);
 		
@@ -156,7 +164,7 @@ public class Equiment_list extends JFrame {
 		table = new JTable();
 		table.setBackground(new Color(154, 207, 208));
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "NAME", "PRICE", "ROOM ID"} ;
+		Object[] column = {"ID", "FLOOR", "TYPE", "STD USN"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
