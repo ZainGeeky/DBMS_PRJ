@@ -1,14 +1,9 @@
 package student;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
-import net.proteanit.sql.DbUtils;
-
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -19,7 +14,6 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
-import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -43,17 +37,31 @@ public class Student_Rec extends JFrame {
 	PreparedStatement pst;
 	ResultSet rs;
 
-	public void table_load() {
+	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
-			pst = con.prepareStatement("SELECT USN,STUDENT_NAME,STUDENT_PHONE,STUDENT_EMAIL,STUDENT_CITY,TO_CHAR(STUDENT_DOB,'dd/MM/yyyy') AS STUDENT_DOB FROM STUDENT");
-			rs = pst.executeQuery();
-			table.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (ClassNotFoundException ex) {
+			ex.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		}
+
+	}
+
+	public void table_load() {
+		try {
+			pst = con.prepareStatement(
+					"SELECT USN,STUDENT_NAME ,STUDENT_PHONE,STUDENT_EMAIL,STUDENT_CITY,TO_CHAR(STUDENT_DOB,'dd/MM/yyyy') AS STUDENT_DOB"
+							+ " FROM STUDENT ORDER BY USN");
+			rs = pst.executeQuery();
+			DefaultTableModel tb1 = (DefaultTableModel) table.getModel();
+			tb1.getDataVector().removeAllElements();
+			while (rs.next()) {
+				tb1.addRow(new String[] { rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6) });
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -68,6 +76,7 @@ public class Student_Rec extends JFrame {
 					Student_Rec frame = new Student_Rec();
 					frame.setVisible(true);
 				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null,"INVALID OPERATION");
 					e.printStackTrace();
 				}
 			}
@@ -150,7 +159,7 @@ public class Student_Rec extends JFrame {
 
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
-			private String[] row;
+			// private String[] row;
 
 			public void actionPerformed(ActionEvent e) {
 
@@ -171,10 +180,6 @@ public class Student_Rec extends JFrame {
 					pst.setString(5, STUDENT_CITY);
 					pst.setString(6, STUDENT_DOB);
 					pst.executeUpdate();
-
-					pst = con.prepareStatement("SELECT * FROM STUDENT");
-					rs = pst.executeQuery();
-					table.setModel(DbUtils.resultSetToTableModel(rs));
 					table_load();
 					usn.setText("");
 					name.setText("");
@@ -186,6 +191,7 @@ public class Student_Rec extends JFrame {
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null,"INVALID OPERATION");
 				}
 
 			}
@@ -196,10 +202,41 @@ public class Student_Rec extends JFrame {
 		JButton btnUpdate = new JButton("UPDATE");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
-				
+
+				String USN, STUDENT_NAME, STUDENT_PHONE, STUDENT_EMAIL, STUDENT_CITY, STUDENT_DOB;
+				USN = usn.getText();
+				STUDENT_NAME = name.getText();
+				STUDENT_PHONE = phno.getText();
+				STUDENT_EMAIL = email.getText();
+				STUDENT_CITY = city.getText();
+				STUDENT_DOB = dob.getText();
+				try {
+					pst = con.prepareStatement(
+							"UPDATE STUDENT set USN = ?,STUDENT_NAME=?,STUDENT_PHONE=?,STUDENT_EMAIL=?,STUDENT_CITY=?,STUDENT_DOB=? where USN =?");
+					pst.setString(1, USN);
+					pst.setString(2, STUDENT_NAME);
+					pst.setString(3, STUDENT_PHONE);
+					pst.setString(4, STUDENT_EMAIL);
+					pst.setString(5, STUDENT_CITY);
+					pst.setString(6, STUDENT_DOB);
+					pst.setString(7, USN);
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Record Update!!!!!");
+					table_load();
+					usn.setText("");
+					name.setText("");
+					phno.setText("");
+					email.setText("");
+					city.setText("");
+					dob.setText("");
+					usn.requestFocus();
+
+				}
+
+				catch (SQLException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null,"INVALID OPERATION");
+				}
 
 			}
 		});
@@ -207,6 +244,36 @@ public class Student_Rec extends JFrame {
 		contentPane.add(btnUpdate);
 
 		JButton btnDelete = new JButton("DELETE");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				String USN = usn.getText();
+				 int dialogResult = JOptionPane.showConfirmDialog (null, "Do you want to Delete the record","Warning",JOptionPane.YES_NO_OPTION);
+if(dialogResult == JOptionPane.YES_OPTION){
+	try {	
+	pst = con.prepareStatement("DELETE FROM STUDENT WHERE USN=?");    
+    pst.setString(1,USN);
+    pst.executeUpdate();
+    JOptionPane.showMessageDialog(null,"Record Deleted Successfully");
+	}
+	catch (Exception e1) {
+		// TODO: handle exception
+	    JOptionPane.showMessageDialog(null,"INVALID OPERATION");
+	}    
+    usn.setText("");
+	name.setText("");
+	phno.setText("");
+	email.setText("");
+	city.setText("");
+	dob.setText("");
+	usn.requestFocus();
+    table_load();
+    
+}
+}
+			
+		});
 		btnDelete.setBounds(214, 352, 117, 29);
 		contentPane.add(btnDelete);
 
@@ -217,6 +284,18 @@ public class Student_Rec extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		JButton btnClear = new JButton("CLEAR");
+		btnClear.addActionListener(new ActionListener() {
+
+	public void actionPerformed(ActionEvent e) {
+				usn.setText("");
+				name.setText("");
+				phno.setText("");
+				email.setText("");
+				city.setText("");
+				dob.setText("");
+				usn.requestFocus();
+			}
+		});
 		btnClear.setBounds(38, 352, 117, 29);
 		contentPane.add(btnClear);
 
@@ -226,24 +305,45 @@ public class Student_Rec extends JFrame {
 				dispose();
 				MENU f1 = new MENU();
 				f1.setVisible(true);
-
 			}
 		});
 		btnBack.setBounds(10, 11, 117, 29);
 		contentPane.add(btnBack);
 
 		JScrollPane student_list = new JScrollPane();
+		student_list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				int selectedIndex = table.getSelectedRow();
+				System.out.println(selectedIndex);
+				usn.setText(model.getValueAt(selectedIndex, 0).toString());
+				name.setText(model.getValueAt(selectedIndex, 1).toString());
+				phno.setText(model.getValueAt(selectedIndex, 2).toString());
+				email.setText(model.getValueAt(selectedIndex, 3).toString());
+				city.setText(model.getValueAt(selectedIndex, 4).toString());
+				dob.setText(model.getValueAt(selectedIndex, 5).toString());
+
+			}
+		});
 		student_list.setBounds(367, 52, 758, 522);
 		contentPane.add(student_list);
 
 		table = new JTable();
+		table.setColumnSelectionAllowed(true);
 		table.setBackground(new Color(154, 207, 208));
-		model = new DefaultTableModel();
-		Object[] column = { "USN", "NAME", "PH.NO.", "EMAIL", "CITY", "DOB" };
-		Object[] row = new Object[0];
-		model.setColumnIdentifiers(column);
-		table.setModel(model);
+		// model = new DefaultTableModel();
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB" }));
+		table.getColumnModel().getColumn(0).setPreferredWidth(110);
+		table.getColumnModel().getColumn(1).setPreferredWidth(120);
+		table.getColumnModel().getColumn(2).setPreferredWidth(103);
+		table.getColumnModel().getColumn(3).setPreferredWidth(119);
+		table.getColumnModel().getColumn(4).setPreferredWidth(102);
+		table.getColumnModel().getColumn(5).setPreferredWidth(79);
 		student_list.setViewportView(table);
+		Connect();
 		table_load();
 	}
 }
