@@ -20,6 +20,10 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.ImageIcon;
 
 public class Student_Rec extends JFrame {
 
@@ -31,8 +35,6 @@ public class Student_Rec extends JFrame {
 	private JTextField city;
 	private JTextField dob;
 	private JTable table;
-	private DefaultTableModel model;
-	private Object[] rows;
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -99,7 +101,8 @@ public class Student_Rec extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(38, 52, 293, 211);
+		panel.setBorder(new TitledBorder(null, "REGISTRATION", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(38, 72, 293, 211);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -280,7 +283,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 		JLabel lblNewLabel_1 = new JLabel("STUDENT RECORD");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_1.setBounds(116, 16, 758, 16);
+		lblNewLabel_1.setBounds(161, 16, 758, 16);
 		contentPane.add(lblNewLabel_1);
 
 		JButton btnClear = new JButton("CLEAR");
@@ -307,7 +310,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 				f1.setVisible(true);
 			}
 		});
-		btnBack.setBounds(10, 11, 117, 29);
+		btnBack.setBounds(38, 11, 117, 29);
 		contentPane.add(btnBack);
 
 		JScrollPane student_list = new JScrollPane();
@@ -327,12 +330,15 @@ if(dialogResult == JOptionPane.YES_OPTION){
 
 			}
 		});
-		student_list.setBounds(367, 52, 758, 522);
+		student_list.setBounds(368, 72, 706, 426);
 		contentPane.add(student_list);
 
 		table = new JTable();
+		table.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		table.setBorder(new CompoundBorder());
+		table.setForeground(Color.BLACK);
 		table.setColumnSelectionAllowed(true);
-		table.setBackground(new Color(154, 207, 208));
+		table.setBackground(Color.LIGHT_GRAY);
 		// model = new DefaultTableModel();
 		table.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB" }));
@@ -343,6 +349,11 @@ if(dialogResult == JOptionPane.YES_OPTION){
 		table.getColumnModel().getColumn(4).setPreferredWidth(102);
 		table.getColumnModel().getColumn(5).setPreferredWidth(79);
 		student_list.setViewportView(table);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ABHIJITH_MALLYA\\Desktop\\sahyadri2.jpg"));
+		lblNewLabel_2.setBounds(10, 0, 1129, 622);
+		contentPane.add(lblNewLabel_2);
 		Connect();
 		table_load();
 	}

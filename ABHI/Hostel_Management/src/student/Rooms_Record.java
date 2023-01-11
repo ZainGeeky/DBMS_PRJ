@@ -30,6 +30,7 @@ public class Rooms_Record extends JFrame {
 	private JTable table;
 	private DefaultTableModel model;
 	private Object[] row;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -169,5 +170,8 @@ public class Rooms_Record extends JFrame {
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
 		scrollPane.setViewportView(table);
+		
+		table_1 = new JTable();
+		scrollPane.setColumnHeaderView(table_1);
 	}
 }
