@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Equiment_list extends JFrame {
 
@@ -62,44 +63,61 @@ public class Equiment_list extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(40, 247, 488, 169);
+		panel.setBounds(40, 231, 488, 185);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("ID:");
+		JLabel lblNewLabel = new JLabel("EID:");
 		lblNewLabel.setBounds(18, 16, 61, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblName = new JLabel("NAME :");
-		lblName.setBounds(18, 53, 61, 16);
+		JLabel lblName = new JLabel("ETYPE :");
+		lblName.setBounds(18, 43, 61, 16);
 		panel.add(lblName);
 		
-		JLabel lblP = new JLabel("PRICE :");
-		lblP.setBounds(18, 89, 84, 16);
+		JLabel lblP = new JLabel("EPRICE :");
+		lblP.setBounds(18, 102, 84, 16);
 		panel.add(lblP);
 		
 		JLabel lblEmail = new JLabel("ROOM ID :");
-		lblEmail.setBounds(18, 130, 91, 16);
+		lblEmail.setBounds(18, 131, 91, 16);
 		panel.add(lblEmail);
 		
 		EID = new JTextField();
-		EID.setBounds(164, 11, 253, 26);
+		EID.setBounds(198, 11, 253, 26);
 		panel.add(EID);
 		EID.setColumns(10);
 		
 		EPRICE = new JTextField();
 		EPRICE.setColumns(10);
-		EPRICE.setBounds(164, 85, 253, 26);
+		EPRICE.setBounds(198, 65, 253, 26);
 		panel.add(EPRICE);
 		
 		EROOMID = new JTextField();
 		EROOMID.setColumns(10);
-		EROOMID.setBounds(164, 125, 253, 26);
+		EROOMID.setBounds(198, 97, 253, 26);
 		panel.add(EROOMID);
 		
 		JComboBox ENAME = new JComboBox();
-		ENAME.setBounds(164, 50, 253, 22);
+		ENAME.setModel(new DefaultComboBoxModel(new String[] {"FURNITURE", "ELECTRONICS", "KITCHEN ITEMS", "OTHER"}));
+		ENAME.setBounds(198, 40, 253, 22);
 		panel.add(ENAME);
+		
+		JLabel lblName_1 = new JLabel("ENAME :");
+		lblName_1.setBounds(18, 75, 61, 16);
+		panel.add(lblName_1);
+		
+		JLabel lblHostelId = new JLabel("HOSTEL ID :");
+		lblHostelId.setBounds(18, 158, 91, 16);
+		panel.add(lblHostelId);
+		
+		JComboBox ENAME_1 = new JComboBox();
+		ENAME_1.setBounds(198, 128, 253, 22);
+		panel.add(ENAME_1);
+		
+		JComboBox ENAME_2 = new JComboBox();
+		ENAME_2.setBounds(198, 155, 253, 22);
+		panel.add(ENAME_2);
 		
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -158,7 +176,7 @@ public class Equiment_list extends JFrame {
 		contentPane.add(btnBack);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 46, 658, 187);
+		scrollPane.setBounds(40, 46, 658, 178);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
