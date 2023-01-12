@@ -314,10 +314,29 @@ if(dialogResult == JOptionPane.YES_OPTION){
 		contentPane.add(btnBack);
 
 		JScrollPane student_list = new JScrollPane();
-		student_list.addMouseListener(new MouseAdapter() {
+//		student_list.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//
+//				DefaultTableModel model = (DefaultTableModel) table.getModel();
+//				int selectedIndex = table.getSelectedRow();
+//				System.out.println(selectedIndex);
+//				usn.setText(model.getValueAt(selectedIndex, 0).toString());
+//				name.setText(model.getValueAt(selectedIndex, 1).toString());
+//				phno.setText(model.getValueAt(selectedIndex, 2).toString());
+//				email.setText(model.getValueAt(selectedIndex, 3).toString());
+//				city.setText(model.getValueAt(selectedIndex, 4).toString());
+//				dob.setText(model.getValueAt(selectedIndex, 5).toString());
+//
+//			}
+//		});
+		student_list.setBounds(368, 72, 706, 426);
+		contentPane.add(student_list);
+
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				int selectedIndex = table.getSelectedRow();
 				System.out.println(selectedIndex);
@@ -326,14 +345,13 @@ if(dialogResult == JOptionPane.YES_OPTION){
 				phno.setText(model.getValueAt(selectedIndex, 2).toString());
 				email.setText(model.getValueAt(selectedIndex, 3).toString());
 				city.setText(model.getValueAt(selectedIndex, 4).toString());
-				dob.setText(model.getValueAt(selectedIndex, 5).toString());
-
+				dob.setText(model.getValueAt(selectedIndex, 5).toString());	
+				
+				
+				
+				
 			}
 		});
-		student_list.setBounds(368, 72, 706, 426);
-		contentPane.add(student_list);
-
-		table = new JTable();
 		table.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		table.setBorder(new CompoundBorder());
 		table.setForeground(Color.BLACK);
