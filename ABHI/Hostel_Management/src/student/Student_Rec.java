@@ -42,16 +42,9 @@ public class Student_Rec extends JFrame {
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-<<<<<<< HEAD
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
-			pst = con.prepareStatement("SELECT USN,STUDENT_NAME,STUDENT_PHONE,STUDENT_EMAIL,STUDENT_CITY,TO_CHAR(STUDENT_DOB,'dd/MM/yyyy') AS STUDENT_DOB FROM STUDENT");
-			rs = pst.executeQuery();
-			table.setModel(DbUtils.resultSetToTableModel(rs));
-=======
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
->>>>>>> 2eb68a031de6b3b773827150c64fdf0696235e30
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
