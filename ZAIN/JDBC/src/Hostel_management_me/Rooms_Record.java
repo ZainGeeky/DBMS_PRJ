@@ -69,15 +69,15 @@ public class Rooms_Record extends JFrame {
 			
 			}
 		});
-		btnNewButton.setBounds(575, 228, 117, 29);
+		btnNewButton.setBounds(586, 242, 117, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.setBounds(575, 282, 117, 29);
+		btnUpdate.setBounds(586, 297, 117, 29);
 		contentPane.add(btnUpdate);
 		
 		JButton btnDelete = new JButton("DELETE");
-		btnDelete.setBounds(575, 390, 117, 29);
+		btnDelete.setBounds(586, 396, 117, 29);
 		contentPane.add(btnDelete);
 		
 		JLabel lblNewLabel_1 = new JLabel("ROOMS RECORD");
@@ -87,7 +87,7 @@ public class Rooms_Record extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnClear = new JButton("CLEAR");
-		btnClear.setBounds(575, 337, 117, 29);
+		btnClear.setBounds(586, 350, 117, 29);
 		contentPane.add(btnClear);
 		
 		JButton btnBack = new JButton("BACK");
@@ -109,42 +109,58 @@ public class Rooms_Record extends JFrame {
 		
 		JComboBox Room_Floor = new JComboBox();
 		Room_Floor.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		Room_Floor.setBounds(258, 59, 177, 22);
+		Room_Floor.setBounds(258, 43, 177, 22);
 		panel.add(Room_Floor);
 		
 		JComboBox Room_Type = new JComboBox();
 		Room_Type.setModel(new DefaultComboBoxModel(new String[] {"SINGLE", "DOUBLE", "QUADRUPLE"}));
-		Room_Type.setBounds(258, 100, 177, 22);
+		Room_Type.setBounds(258, 76, 177, 22);
 		panel.add(Room_Type);
 		
-		JLabel lblNewLabel = new JLabel("Room ID");
-		lblNewLabel.setBounds(38, 26, 73, 22);
+		JLabel lblNewLabel = new JLabel("Room ID :");
+		lblNewLabel.setBounds(32, 14, 73, 22);
 		panel.add(lblNewLabel);
 		
-		JLabel lblRoomfloor = new JLabel("Room Floor");
-		lblRoomfloor.setBounds(38, 59, 73, 22);
+		JLabel lblRoomfloor = new JLabel("Room Floor :");
+		lblRoomfloor.setBounds(32, 43, 73, 22);
 		panel.add(lblRoomfloor);
 		
-		JLabel lblRoomtype = new JLabel("Room Type");
-		lblRoomtype.setBounds(38, 100, 73, 22);
+		JLabel lblRoomtype = new JLabel("Room Type :");
+		lblRoomtype.setBounds(32, 76, 73, 22);
 		panel.add(lblRoomtype);
 		
-		JLabel lblNewLabel_2 = new JLabel("Student USN");
-		lblNewLabel_2.setBounds(38, 133, 73, 22);
+		JLabel lblNewLabel_2 = new JLabel("Student USN :");
+		lblNewLabel_2.setBounds(32, 102, 73, 22);
 		panel.add(lblNewLabel_2);
 		
 		Student_USN = new JTextField();
-		Student_USN.setBounds(258, 134, 177, 20);
+		Student_USN.setBounds(258, 103, 177, 20);
 		panel.add(Student_USN);
 		Student_USN.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(258, 27, 177, 20);
+		textField_1.setBounds(258, 15, 177, 20);
 		panel.add(textField_1);
 		
+		JLabel lblRId = new JLabel("Rent ID :");
+		lblRId.setBounds(32, 133, 73, 22);
+		panel.add(lblRId);
+		
+		JLabel lblHostelId = new JLabel("Hostel ID :");
+		lblHostelId.setBounds(32, 164, 73, 22);
+		panel.add(lblHostelId);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(258, 164, 177, 22);
+		panel.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(258, 134, 177, 22);
+		panel.add(comboBox_1);
+		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 51, 669, 169);
+		scrollPane.setBounds(20, 51, 705, 169);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();

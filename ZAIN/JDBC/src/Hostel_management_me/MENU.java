@@ -79,6 +79,13 @@ public class MENU extends JFrame {
 		contentPane.add(btnRoomsRecord);
 		
 		JButton btnEquipmentRecord = new JButton(" RENT RECORD");
+		btnEquipmentRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Rent_Rec f1 = new Rent_Rec();
+				f1.setVisible(true);
+			}
+		});
 		btnEquipmentRecord.setForeground(new Color(72, 61, 139));
 		btnEquipmentRecord.setBounds(225, 140, 202, 29);
 		contentPane.add(btnEquipmentRecord);
@@ -101,11 +108,25 @@ public class MENU extends JFrame {
 		contentPane.add(btnEquipmentsRecord);
 		
 		JButton btnHostelRecord = new JButton(" HOSTEL RECORD");
+		btnHostelRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Hostel_Rec f1 = new Hostel_Rec();
+				f1.setVisible(true);
+			}
+		});
 		btnHostelRecord.setForeground(new Color(72, 61, 139));
 		btnHostelRecord.setBounds(225, 263, 202, 29);
 		contentPane.add(btnHostelRecord);
 		
 		JButton btnLogut = new JButton("LOGUT");
+		btnLogut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ADMINLOGIN f1 = new ADMINLOGIN();
+				f1.setVisible(true);
+			}
+		});
 		btnLogut.setForeground(new Color(255, 0, 0));
 		btnLogut.setBackground(UIManager.getColor("Button.background"));
 		btnLogut.setBounds(225, 304, 202, 29);
