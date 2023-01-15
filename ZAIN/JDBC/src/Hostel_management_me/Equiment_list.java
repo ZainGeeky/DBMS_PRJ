@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+
+
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -20,6 +22,9 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -110,15 +115,33 @@ public class Equiment_list extends JFrame {
 		JLabel lblHostelId = new JLabel("HOSTEL ID :");
 		lblHostelId.setBounds(18, 158, 91, 16);
 		panel.add(lblHostelId);
-		
-		JComboBox ENAME_1 = new JComboBox();
-		ENAME_1.setBounds(198, 128, 253, 22);
-		panel.add(ENAME_1);
-		
-		JComboBox ENAME_2 = new JComboBox();
-		ENAME_2.setBounds(198, 155, 253, 22);
-		panel.add(ENAME_2);
-		
+//		//sql_connection rv = new sql_connection();
+//		JComboBox equipment_room = new JComboBox();
+//		ResultSet rs = rv.display_sql("select ROOM_ID FROM ROOM ");
+//		 try {
+//			while(rs.next()){                            
+//			        equipment_room.addItem(rs.getString(1));
+//			    }
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		equipment_room.setBounds(198, 128, 253, 22);
+//		panel.add(equipment_room);
+//		
+//		JComboBox equipment_hostel = new JComboBox();
+//		rs = rv.display_sql("select HOSTEL_ID FROM HOSTEL ");
+//		 try {
+//			while(rs.next()){                            
+//			        equipment_hostel.addItem(rs.getString(1));
+//			    }
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		equipment_hostel.setBounds(198, 155, 253, 22);
+//		panel.add(equipment_hostel);
+//		
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
 

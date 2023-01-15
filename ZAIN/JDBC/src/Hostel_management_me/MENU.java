@@ -93,9 +93,9 @@ public class MENU extends JFrame {
 		JButton btnRecord = new JButton(" PAYMENT RECORD");
 		btnRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				Payment_Rec f1 = new Payment_Rec();
-				f1.setVisible(true);
+			//	dispose();
+			//	Payment_Rec f1 = new Payment_Rec();
+			//	f1.setVisible(true);
 			}
 		});
 		btnRecord.setForeground(new Color(72, 61, 139));

@@ -24,6 +24,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 public class Student_Rec extends JFrame {
 
@@ -38,11 +39,12 @@ public class Student_Rec extends JFrame {
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
+	private JComboBox hid;
 
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 			System.out.println("connected");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
@@ -94,7 +96,7 @@ public class Student_Rec extends JFrame {
 		// connect();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1006, 528);
+		setBounds(100, 100, 1145, 577);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(132, 202, 193));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -104,7 +106,7 @@ public class Student_Rec extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "REGISTRATION", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(38, 72, 293, 211);
+		panel.setBounds(38, 72, 293, 246);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -161,6 +163,22 @@ public class Student_Rec extends JFrame {
 		dob.setColumns(10);
 		dob.setBounds(112, 165, 164, 26);
 		panel.add(dob);
+		
+		JLabel lblHostelId = new JLabel("HOSTEL ID");
+		lblHostelId.setBounds(18, 197, 61, 16);
+		panel.add(lblHostelId);
+		
+		JLabel lblRentId = new JLabel("ROOM ID :");
+		lblRentId.setBounds(18, 220, 61, 16);
+		panel.add(lblRentId);
+		
+		hid = new JComboBox();
+		hid.setBounds(112, 194, 164, 22);
+		panel.add(hid);
+		
+		JComboBox room_id = new JComboBox();
+		room_id.setBounds(112, 217, 164, 22);
+		panel.add(room_id);
 
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -168,22 +186,25 @@ public class Student_Rec extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-				String USN, STUDENT_NAME, STUDENT_PHONE, STUDENT_EMAIL, STUDENT_CITY, STUDENT_DOB;
+				String USN, STUDENT_NAME, STUDENT_PHONE, STUDENT_EMAIL, STUDENT_CITY, STUDENT_DOB,S_ROOM,S_HOSTEL;
 				USN = usn.getText();
 				STUDENT_NAME = name.getText();
 				STUDENT_PHONE = phno.getText();
 				STUDENT_EMAIL = email.getText();
 				STUDENT_CITY = city.getText();
 				STUDENT_DOB = dob.getText();
-
+				S_HOSTEL = hid.getSelectedItem().toString();
+				S_ROOM = room_id.getSelectedItem().toString();
 				try {
-					pst = con.prepareStatement("insert into student VALUES(?,?,?,?,?,?)");
+					pst = con.prepareStatement("insert into student VALUES(?,?,?,?,?,?,?,?)");
 					pst.setString(1, USN);
 					pst.setString(2, STUDENT_NAME);
 					pst.setString(3, STUDENT_PHONE);
 					pst.setString(4, STUDENT_EMAIL);
 					pst.setString(5, STUDENT_CITY);
 					pst.setString(6, STUDENT_DOB);
+					pst.setString(7, S_HOSTEL);
+					pst.setString(8, S_ROOM);				
 					pst.executeUpdate();
 					table_load();
 					usn.setText("");
@@ -192,6 +213,8 @@ public class Student_Rec extends JFrame {
 					email.setText("");
 					city.setText("");
 					dob.setText("");
+					hid.setSelectedItem(null);
+					room_id.setSelectedItem(null);
 					usn.requestFocus();
 
 				} catch (SQLException e1) {
@@ -332,7 +355,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 //
 //			}
 //		});
-		student_list.setBounds(341, 65, 643, 398);
+		student_list.setBounds(366, 65, 741, 417);
 		contentPane.add(student_list);
 
 		table = new JTable();
@@ -361,13 +384,16 @@ if(dialogResult == JOptionPane.YES_OPTION){
 		table.setBackground(Color.LIGHT_GRAY);
 		// model = new DefaultTableModel();
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB" }));
+				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB","HOSTELID","ROOM ID" }));
 		table.getColumnModel().getColumn(0).setPreferredWidth(110);
 		table.getColumnModel().getColumn(1).setPreferredWidth(120);
 		table.getColumnModel().getColumn(2).setPreferredWidth(103);
 		table.getColumnModel().getColumn(3).setPreferredWidth(119);
 		table.getColumnModel().getColumn(4).setPreferredWidth(102);
 		table.getColumnModel().getColumn(5).setPreferredWidth(79);
+		table.getColumnModel().getColumn(5).setPreferredWidth(79);
+		table.getColumnModel().getColumn(6).setPreferredWidth(119);
+		table.getColumnModel().getColumn(7).setPreferredWidth(119);
 		student_list.setViewportView(table);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
