@@ -117,19 +117,19 @@ public class Rooms_Record extends JFrame {
 		Room_Type.setBounds(258, 76, 177, 22);
 		panel.add(Room_Type);
 		
-		JLabel lblNewLabel = new JLabel("Room ID :");
+		JLabel lblNewLabel = new JLabel("ROOM ID :");
 		lblNewLabel.setBounds(32, 14, 73, 22);
 		panel.add(lblNewLabel);
 		
-		JLabel lblRoomfloor = new JLabel("Room Floor :");
-		lblRoomfloor.setBounds(32, 43, 73, 22);
+		JLabel lblRoomfloor = new JLabel("ROOM FLOOR :");
+		lblRoomfloor.setBounds(32, 43, 121, 22);
 		panel.add(lblRoomfloor);
 		
-		JLabel lblRoomtype = new JLabel("Room Type :");
-		lblRoomtype.setBounds(32, 76, 73, 22);
+		JLabel lblRoomtype = new JLabel("ROOM TYPE :");
+		lblRoomtype.setBounds(32, 76, 161, 22);
 		panel.add(lblRoomtype);
 		
-		JLabel lblNewLabel_2 = new JLabel("Student USN :");
+		JLabel lblNewLabel_2 = new JLabel("USN :");
 		lblNewLabel_2.setBounds(32, 102, 73, 22);
 		panel.add(lblNewLabel_2);
 		
@@ -143,11 +143,11 @@ public class Rooms_Record extends JFrame {
 		textField_1.setBounds(258, 15, 177, 20);
 		panel.add(textField_1);
 		
-		JLabel lblRId = new JLabel("Rent ID :");
-		lblRId.setBounds(32, 133, 73, 22);
+		JLabel lblRId = new JLabel("RENT TITLE :");
+		lblRId.setBounds(32, 133, 171, 22);
 		panel.add(lblRId);
 		
-		JLabel lblHostelId = new JLabel("Hostel ID :");
+		JLabel lblHostelId = new JLabel("HOSTEL ID :");
 		lblHostelId.setBounds(32, 164, 73, 22);
 		panel.add(lblHostelId);
 		
@@ -166,7 +166,7 @@ public class Rooms_Record extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "FLOOR", "TYPE", "STD USN"} ;
+		Object[] column = {"ROOM ID", "ROOM FLOOR", "ROOM TYPE", "USN","RENT TITLE","HOSTEL ID"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

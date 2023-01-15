@@ -27,13 +27,13 @@ public class Payment_Rec extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField EID;
-	private JTextField EPRICE;
 	private JTextField EROOMID;
 	private JTable table;
 	private DefaultTableModel model;
 	private Object[] row;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -69,11 +69,11 @@ public class Payment_Rec extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Payment ID :");
+		JLabel lblNewLabel = new JLabel("PAYMENT ID :");
 		lblNewLabel.setBounds(20, 16, 100, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblP = new JLabel("Date :");
+		JLabel lblP = new JLabel("DATE :");
 		lblP.setBounds(20, 88, 84, 16);
 		panel.add(lblP);
 		
@@ -82,26 +82,21 @@ public class Payment_Rec extends JFrame {
 		panel.add(EID);
 		EID.setColumns(10);
 		
-		EPRICE = new JTextField();
-		EPRICE.setColumns(10);
-		EPRICE.setBounds(130, 48, 202, 26);
-		panel.add(EPRICE);
-		
 		EROOMID = new JTextField();
 		EROOMID.setColumns(10);
 		EROOMID.setBounds(130, 83, 202, 26);
 		panel.add(EROOMID);
 		
-		JLabel lblName_1 = new JLabel("Student USN :");
+		JLabel lblName_1 = new JLabel("USN :");
 		lblName_1.setBounds(20, 56, 100, 16);
 		panel.add(lblName_1);
 		
-		JLabel lblAmount = new JLabel("Amount :");
+		JLabel lblAmount = new JLabel("AMOUNT :");
 		lblAmount.setBounds(356, 21, 84, 16);
 		panel.add(lblAmount);
 		
-		JLabel lblDescription = new JLabel("Description :");
-		lblDescription.setBounds(356, 55, 84, 16);
+		JLabel lblDescription = new JLabel("DESCRIPTION :");
+		lblDescription.setBounds(356, 55, 100, 16);
 		panel.add(lblDescription);
 		
 		textField = new JTextField();
@@ -114,27 +109,28 @@ public class Payment_Rec extends JFrame {
 		textField_1.setBounds(466, 50, 202, 26);
 		panel.add(textField_1);
 		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(130, 48, 202, 26);
+		panel.add(textField_2);
+		
 		JButton btnNewButton = new JButton("ADD");
 		
-		btnNewButton.setBounds(37, 380, 117, 29);
+		btnNewButton.setBounds(104, 380, 117, 29);
 		contentPane.add(btnNewButton);
-		
-		JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.setBounds(185, 380, 117, 29);
-		contentPane.add(btnUpdate);
 		
 		JButton btnDelete = new JButton("DELETE");
 		btnDelete.setBounds(327, 380, 117, 29);
 		contentPane.add(btnDelete);
 		
-		JLabel lblNewLabel_1 = new JLabel("RENT RECORD");
+		JLabel lblNewLabel_1 = new JLabel("PAYMENT RECORD");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
 		lblNewLabel_1.setBounds(0, 17, 758, 16);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnClear = new JButton("CLEAR");
-		btnClear.setBounds(475, 380, 117, 29);
+		btnClear.setBounds(555, 380, 117, 29);
 		contentPane.add(btnClear);
 		
 		JButton btnBack = new JButton("BACK");
@@ -156,14 +152,10 @@ public class Payment_Rec extends JFrame {
 		table = new JTable();
 		table.setBackground(new Color(154, 207, 208));
 		model = new DefaultTableModel();
-		Object[] column = {"Payment ID", "Student USN","Date" ,"Amount","Description"} ;
+		Object[] column = {"PAYMENT ID", "USN","DATE" ,"AMOUNT","DESCRIPTION"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
 		scrollPane.setViewportView(table);
-		
-		JButton btnPrint = new JButton("PRINT");
-		btnPrint.setBounds(619, 380, 117, 29);
-		contentPane.add(btnPrint);
 	}
 }

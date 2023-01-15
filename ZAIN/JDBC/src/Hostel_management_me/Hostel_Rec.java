@@ -66,12 +66,12 @@ public class Hostel_Rec extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Hostel ID :");
-		lblNewLabel.setBounds(20, 29, 61, 16);
+		JLabel lblNewLabel = new JLabel("HOSTEL ID :");
+		lblNewLabel.setBounds(20, 29, 139, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblP = new JLabel("Hostel Name :");
-		lblP.setBounds(20, 110, 84, 16);
+		JLabel lblP = new JLabel("HOSTEL NAME :");
+		lblP.setBounds(20, 110, 146, 16);
 		panel.add(lblP);
 		
 		EID = new JTextField();
@@ -84,8 +84,8 @@ public class Hostel_Rec extends JFrame {
 		EPRICE.setBounds(200, 61, 253, 26);
 		panel.add(EPRICE);
 		
-		JLabel lblName_1 = new JLabel("Location :");
-		lblName_1.setBounds(20, 69, 61, 16);
+		JLabel lblName_1 = new JLabel("LOCATION :");
+		lblName_1.setBounds(20, 69, 170, 16);
 		panel.add(lblName_1);
 		
 		JComboBox comboBox = new JComboBox();
@@ -135,7 +135,7 @@ public class Hostel_Rec extends JFrame {
 		table = new JTable();
 		table.setBackground(new Color(154, 207, 208));
 		model = new DefaultTableModel();
-		Object[] column = {"Hostel ID", "Location", "Hostel Name"} ;
+		Object[] column = {"HOSTEL ID", "LOCATION", "HOSTEL NAME"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

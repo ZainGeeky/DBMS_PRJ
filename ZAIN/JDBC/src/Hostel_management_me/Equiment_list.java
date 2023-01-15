@@ -182,7 +182,7 @@ public class Equiment_list extends JFrame {
 		table = new JTable();
 		table.setBackground(new Color(154, 207, 208));
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "NAME", "PRICE", "ROOM ID"} ;
+		Object[] column = {"EID", "ENAME", "EPRICE", "ROOM ID","HOSTEL ID"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

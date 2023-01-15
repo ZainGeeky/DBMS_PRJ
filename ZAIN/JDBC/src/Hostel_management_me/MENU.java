@@ -140,6 +140,13 @@ public class MENU extends JFrame {
 		contentPane.add(btnLogut);
 		
 		JButton btnStats = new JButton("STATS");
+		btnStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Stats f1=new Stats();
+				f1.setVisible(true);
+			}
+		});
 		btnStats.setForeground(new Color(72, 61, 139));
 		btnStats.setBounds(225, 303, 202, 29);
 		contentPane.add(btnStats);

@@ -23,14 +23,13 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class Rent_Rec extends JFrame {
+public class Payment_Stats extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField EPRICE;
-	private JTextField EROOMID;
 	private JTable table;
 	private DefaultTableModel model;
 	private Object[] row;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -39,7 +38,7 @@ public class Rent_Rec extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Rent_Rec frame = new Rent_Rec();
+					Payment_Stats frame = new Payment_Stats();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,9 +50,9 @@ public class Rent_Rec extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Rent_Rec() {
+	public Payment_Stats() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 758, 484);
+		setBounds(100, 100, 789, 484);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(132, 202, 193));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,56 +61,30 @@ public class Rent_Rec extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(40, 247, 502, 155);
+		panel.setBounds(37, 51, 699, 60);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblP = new JLabel("AMOUNT :");
-		lblP.setBounds(28, 85, 84, 16);
-		panel.add(lblP);
+		JLabel lblNewLabel = new JLabel("USN :");
+		lblNewLabel.setBounds(76, 19, 50, 16);
+		panel.add(lblNewLabel);
 		
-		EPRICE = new JTextField();
-		EPRICE.setColumns(10);
-		EPRICE.setBounds(208, 36, 253, 26);
-		panel.add(EPRICE);
+		textField = new JTextField();
+		textField.setBounds(221, 17, 209, 20);
+		panel.add(textField);
+		textField.setColumns(10);
 		
-		EROOMID = new JTextField();
-		EROOMID.setColumns(10);
-		EROOMID.setBounds(208, 80, 253, 26);
-		panel.add(EROOMID);
-		
-		JLabel lblName_1 = new JLabel("RENT TITLE :");
-		lblName_1.setBounds(28, 44, 112, 16);
-		panel.add(lblName_1);
-		
-		JButton btnNewButton = new JButton("ADD");
-		
-		btnNewButton.setBounds(570, 247, 117, 29);
-		contentPane.add(btnNewButton);
-		
-		JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.setBounds(570, 293, 117, 29);
-		contentPane.add(btnUpdate);
-		
-		JButton btnDelete = new JButton("DELETE");
-		btnDelete.setBounds(570, 340, 117, 29);
-		contentPane.add(btnDelete);
-		
-		JLabel lblNewLabel_1 = new JLabel("RENT RECORD");
+		JLabel lblNewLabel_1 = new JLabel("PAYMENT STATS");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
 		lblNewLabel_1.setBounds(0, 17, 758, 16);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnClear = new JButton("CLEAR");
-		btnClear.setBounds(570, 380, 117, 29);
-		contentPane.add(btnClear);
-		
 		JButton btnBack = new JButton("BACK");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MENU f1 = new MENU();
+				Stats f1 = new Stats();
 				f1.setVisible(true);
 
 			}
@@ -120,13 +93,13 @@ public class Rent_Rec extends JFrame {
 		contentPane.add(btnBack);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 44, 678, 193);
+		scrollPane.setBounds(37, 122, 699, 283);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		table.setBackground(new Color(154, 207, 208));
 		model = new DefaultTableModel();
-		Object[] column = {"RENT TITLE", "AMOUNT"} ;
+		Object[] column = {" RENT TITLE","AMOUNT"} ;
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

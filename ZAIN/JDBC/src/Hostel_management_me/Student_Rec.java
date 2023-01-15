@@ -24,6 +24,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 public class Student_Rec extends JFrame {
 
@@ -104,7 +105,7 @@ public class Student_Rec extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "REGISTRATION", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(38, 72, 293, 211);
+		panel.setBounds(38, 72, 293, 246);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -161,6 +162,22 @@ public class Student_Rec extends JFrame {
 		dob.setColumns(10);
 		dob.setBounds(112, 165, 164, 26);
 		panel.add(dob);
+		
+		JLabel lblHostelId = new JLabel("HOSTEL ID :");
+		lblHostelId.setBounds(18, 197, 84, 16);
+		panel.add(lblHostelId);
+		
+		JLabel lblRentId = new JLabel("ROOM ID :");
+		lblRentId.setBounds(18, 220, 84, 16);
+		panel.add(lblRentId);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(112, 194, 164, 22);
+		panel.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(112, 217, 164, 22);
+		panel.add(comboBox_1);
 
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -332,7 +349,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 //
 //			}
 //		});
-		student_list.setBounds(341, 65, 643, 398);
+		student_list.setBounds(336, 65, 648, 398);
 		contentPane.add(student_list);
 
 		table = new JTable();
@@ -361,13 +378,16 @@ if(dialogResult == JOptionPane.YES_OPTION){
 		table.setBackground(Color.LIGHT_GRAY);
 		// model = new DefaultTableModel();
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB" }));
+				new String[] { "USN", "NAME", "PHONE", "EMAIL", "CITY", "DOB","HOSTELID","ROOM ID" }));
 		table.getColumnModel().getColumn(0).setPreferredWidth(110);
 		table.getColumnModel().getColumn(1).setPreferredWidth(120);
 		table.getColumnModel().getColumn(2).setPreferredWidth(103);
 		table.getColumnModel().getColumn(3).setPreferredWidth(119);
 		table.getColumnModel().getColumn(4).setPreferredWidth(102);
 		table.getColumnModel().getColumn(5).setPreferredWidth(79);
+		table.getColumnModel().getColumn(5).setPreferredWidth(79);
+		table.getColumnModel().getColumn(6).setPreferredWidth(119);
+		table.getColumnModel().getColumn(7).setPreferredWidth(119);
 		student_list.setViewportView(table);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
