@@ -27,7 +27,6 @@ public class Rooms_Record extends JFrame {
 	private JPanel contentPane;
 	private DefaultTableModel model;
 	private Object[] row;
-	private JTextField Student_USN;
 	private JTextField textField_1;
 	private JTable table;
 
@@ -103,7 +102,7 @@ public class Rooms_Record extends JFrame {
 		contentPane.add(btnBack);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(20, 228, 545, 197);
+		panel.setBounds(30, 234, 545, 191);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -129,6 +128,7 @@ public class Rooms_Record extends JFrame {
 		lblRoomtype.setBounds(32, 76, 161, 22);
 		panel.add(lblRoomtype);
 		
+<<<<<<< HEAD
 		JLabel lblNewLabel_2 = new JLabel("USN :");
 		lblNewLabel_2.setBounds(32, 102, 73, 22);
 		panel.add(lblNewLabel_2);
@@ -138,25 +138,36 @@ public class Rooms_Record extends JFrame {
 		panel.add(Student_USN);
 		Student_USN.setColumns(10);
 		
+=======
+>>>>>>> 0c3597149e5f88027b517a324c0148709e44b9f1
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(258, 15, 177, 20);
 		panel.add(textField_1);
 		
+<<<<<<< HEAD
 		JLabel lblRId = new JLabel("RENT TITLE :");
 		lblRId.setBounds(32, 133, 171, 22);
 		panel.add(lblRId);
 		
 		JLabel lblHostelId = new JLabel("HOSTEL ID :");
 		lblHostelId.setBounds(32, 164, 73, 22);
+=======
+		JLabel lblRId = new JLabel("Rent ID :");
+		lblRId.setBounds(32, 108, 73, 22);
+		panel.add(lblRId);
+		
+		JLabel lblHostelId = new JLabel("Hostel ID :");
+		lblHostelId.setBounds(32, 139, 73, 22);
+>>>>>>> 0c3597149e5f88027b517a324c0148709e44b9f1
 		panel.add(lblHostelId);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(258, 164, 177, 22);
+		comboBox.setBounds(258, 139, 177, 22);
 		panel.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(258, 134, 177, 22);
+		comboBox_1.setBounds(258, 109, 177, 22);
 		panel.add(comboBox_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -166,7 +177,11 @@ public class Rooms_Record extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		model = new DefaultTableModel();
+<<<<<<< HEAD
 		Object[] column = {"ROOM ID", "ROOM FLOOR", "ROOM TYPE", "USN","RENT TITLE","HOSTEL ID"} ;
+=======
+		Object[] column = {"ID", "FLOOR", "TYPE", "RENT","HID"} ;
+>>>>>>> 0c3597149e5f88027b517a324c0148709e44b9f1
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
