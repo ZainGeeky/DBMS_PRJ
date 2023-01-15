@@ -91,6 +91,13 @@ public class MENU extends JFrame {
 		contentPane.add(btnEquipmentRecord);
 		
 		JButton btnRecord = new JButton(" PAYMENT RECORD");
+		btnRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Payment_Rec f1 = new Payment_Rec();
+				f1.setVisible(true);
+			}
+		});
 		btnRecord.setForeground(new Color(72, 61, 139));
 		btnRecord.setBounds(225, 181, 202, 29);
 		contentPane.add(btnRecord);
@@ -129,7 +136,12 @@ public class MENU extends JFrame {
 		});
 		btnLogut.setForeground(new Color(255, 0, 0));
 		btnLogut.setBackground(UIManager.getColor("Button.background"));
-		btnLogut.setBounds(225, 304, 202, 29);
+		btnLogut.setBounds(225, 343, 202, 29);
 		contentPane.add(btnLogut);
+		
+		JButton btnStats = new JButton("STATS");
+		btnStats.setForeground(new Color(72, 61, 139));
+		btnStats.setBounds(225, 303, 202, 29);
+		contentPane.add(btnStats);
 	}
 }
