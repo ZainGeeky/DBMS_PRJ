@@ -56,8 +56,8 @@ public class ADMINLOGIN extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("HOSTEL MANAGEMENT");
-		lblNewLabel.setForeground(Color.DARK_GRAY);
-		lblNewLabel.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 25));
+		lblNewLabel.setForeground(new Color(153, 50, 204));
+		lblNewLabel.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 6, 609, 29);
 		contentPane.add(lblNewLabel);
@@ -70,13 +70,13 @@ public class ADMINLOGIN extends JFrame {
 		panel.setLayout(null);
 
 		JLabel usr = new JLabel("USERNAME :");
-		usr.setForeground(Color.DARK_GRAY);
+		usr.setForeground(new Color(138, 43, 226));
 		usr.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		usr.setBounds(47, 97, 122, 16);
 		panel.add(usr);
 
 		JLabel pwd = new JLabel("PASSWORD :");
-		pwd.setForeground(Color.DARK_GRAY);
+		pwd.setForeground(new Color(148, 0, 211));
 		pwd.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		pwd.setBounds(47, 166, 122, 16);
 		panel.add(pwd);
@@ -87,10 +87,10 @@ public class ADMINLOGIN extends JFrame {
 		username.setColumns(10);
 
 		JLabel lblNewLabel_1_2 = new JLabel("ADMIN LOGIN");
-		lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
+		lblNewLabel_1_2.setForeground(new Color(128, 0, 128));
 		lblNewLabel_1_2.setBackground(new Color(0, 255, 255));
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_1_2.setFont(new Font("MV Boli", Font.BOLD, 30));
 		lblNewLabel_1_2.setBounds(69, 24, 363, 43);
 		panel.add(lblNewLabel_1_2);
 
@@ -115,7 +115,7 @@ public class ADMINLOGIN extends JFrame {
 			}
 		});
 		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setForeground(SystemColor.textHighlight);
+		btnNewButton.setForeground(new Color(0, 0, 255));
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		btnNewButton.setBounds(210, 200, 117, 29);
 		panel.add(btnNewButton);
