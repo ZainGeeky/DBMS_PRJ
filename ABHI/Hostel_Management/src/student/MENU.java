@@ -5,6 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+//import Hostel_management_me.ADMINLOGIN;
+//import Hostel_management_me.Equiment_list;
+//import Hostel_management_me.Hostel_Rec;
+//import Hostel_management_me.MENU;
+//import Hostel_management_me.Rent_Rec;
+//import Hostel_management_me.Rooms_Record;
+//import Hostel_management_me.Student_Rec;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -13,6 +22,7 @@ import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+
 
 public class MENU extends JFrame {
 
@@ -39,7 +49,7 @@ public class MENU extends JFrame {
 	 */
 	public MENU() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 844, 594);
+		setBounds(100, 100, 650, 469);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(132, 202, 193));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,10 +58,10 @@ public class MENU extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("MENU");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setForeground(new Color(255, 255, 0));
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 22));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(76, 0, 650, 16);
+		lblNewLabel.setBounds(0, 19, 650, 16);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("STUDENT RECORD");
@@ -64,7 +74,7 @@ public class MENU extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(new Color(72, 61, 139));
-		btnNewButton.setBounds(285, 126, 230, 43);
+		btnNewButton.setBounds(225, 58, 202, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnRoomsRecord = new JButton("ROOMS RECORD");
@@ -76,34 +86,55 @@ public class MENU extends JFrame {
 			}
 		});
 		btnRoomsRecord.setForeground(new Color(72, 61, 139));
-		btnRoomsRecord.setBounds(285, 179, 230, 43);
+		btnRoomsRecord.setBounds(225, 99, 202, 29);
 		contentPane.add(btnRoomsRecord);
 		
 		JButton btnEquipmentRecord = new JButton(" RENT RECORD");
+		btnEquipmentRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Rent_rec f1 = new Rent_rec();
+				f1.setVisible(true);
+			}
+		});
 		btnEquipmentRecord.setForeground(new Color(72, 61, 139));
-		btnEquipmentRecord.setBounds(285, 232, 230, 43);
+		btnEquipmentRecord.setBounds(225, 140, 202, 29);
 		contentPane.add(btnEquipmentRecord);
 		
 		JButton btnRecord = new JButton(" PAYMENT RECORD");
+		btnRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Payment_Rec f1 = new Payment_Rec();
+				dispose();
+				f1.setVisible(true);
+			}
+		});
 		btnRecord.setForeground(new Color(72, 61, 139));
-		btnRecord.setBounds(285, 285, 230, 43);
+		btnRecord.setBounds(225, 181, 202, 29);
 		contentPane.add(btnRecord);
 		
 		JButton btnEquipmentsRecord = new JButton(" EQUIPMENTS RECORD");
 		btnEquipmentsRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				Equiment_list f1 = new Equiment_list();
+				dispose();
 				f1.setVisible(true);
 			}
 		});
 		btnEquipmentsRecord.setForeground(new Color(72, 61, 139));
-		btnEquipmentsRecord.setBounds(285, 338, 230, 43);
+		btnEquipmentsRecord.setBounds(225, 222, 202, 29);
 		contentPane.add(btnEquipmentsRecord);
 		
 		JButton btnHostelRecord = new JButton(" HOSTEL RECORD");
+		btnHostelRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Hostel_rec f1 = new Hostel_rec();
+				f1.setVisible(true);
+			}
+		});
 		btnHostelRecord.setForeground(new Color(72, 61, 139));
-		btnHostelRecord.setBounds(285, 391, 230, 43);
+		btnHostelRecord.setBounds(225, 263, 202, 29);
 		contentPane.add(btnHostelRecord);
 		
 		JButton btnLogut = new JButton("LOGUT");
@@ -116,12 +147,32 @@ public class MENU extends JFrame {
 		});
 		btnLogut.setForeground(new Color(255, 0, 0));
 		btnLogut.setBackground(UIManager.getColor("Button.background"));
-		btnLogut.setBounds(564, 460, 217, 64);
+		btnLogut.setBounds(225, 343, 202, 29);
 		contentPane.add(btnLogut);
 		
+		JButton btnStats = new JButton("STATS");
+		btnStats.setForeground(new Color(72, 61, 139));
+		btnStats.setBounds(225, 303, 202, 29);
+		contentPane.add(btnStats);
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\ABHIJITH_MALLYA\\Desktop\\sahyadri1.jpeg"));
 		lblNewLabel_1.setBounds(0, 21, 808, 537);
 		contentPane.add(lblNewLabel_1);
+
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
