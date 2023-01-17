@@ -112,6 +112,31 @@ JOIN HOSTEL ON ROOM.HOSTEL_ID = HOSTEL.HOSTEL_ID
 WHERE HOSTEL.HOSTEL_ID = '1' AND ROOM.ROOM_ID = '102';
 
 
+--5. Room Capacity Trigger
+--drop trigger room_capacity_check;
+CREATE OR REPLACE TRIGGER room_capacity_check
+BEFORE INSERT ON STUDENT
+FOR EACH ROW
+DECLARE
+  current_count INT;
+  room_type varchar2(20);
+BEGIN
+  SELECT ROOM_TYPE INTO room_type FROM ROOM WHERE ROOM_ID = :new.ROOM_ID;
+  SELECT COUNT(*) INTO current_count FROM STUDENT WHERE ROOM_ID = :new.ROOM_ID;
+  IF current_count >= 
+  CASE
+    WHEN room_type = 'SINGLE' THEN 1
+    WHEN room_type = 'DOUBLE' THEN 2
+    WHEN room_type = 'TRIPLE' THEN 3
+    WHEN room_type = 'QUADRUPLE' THEN 4
+    ELSE 0
+  END THEN
+    RAISE_APPLICATION_ERROR(-20001, 'The maximum number of students for this room type has been exceeded');
+  END IF;
+END;
+
+
+
 
 
 
