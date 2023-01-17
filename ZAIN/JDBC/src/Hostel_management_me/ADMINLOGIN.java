@@ -19,6 +19,8 @@ import java.awt.ComponentOrientation;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 public class ADMINLOGIN extends JFrame {
 
 	private JPanel contentPane;
@@ -95,6 +97,26 @@ public class ADMINLOGIN extends JFrame {
 		panel.add(lblNewLabel_1_2);
 
 		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(username.getText().equals("admin")&&password.getText().equals("admin"))
+				{
+					JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
+				MENU frame = new MENU();
+				dispose();
+				frame.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+					username.setText("");
+					password.setText("");
+					username.requestFocus();
+					
+				}
+				
+			}
+		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -125,13 +147,13 @@ public class ADMINLOGIN extends JFrame {
 		panel.add(password);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 495, 305);
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 609, 384);
 		contentPane.add(lblNewLabel_1);
 	}

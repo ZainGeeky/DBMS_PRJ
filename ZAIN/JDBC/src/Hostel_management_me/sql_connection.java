@@ -16,7 +16,7 @@ public class sql_connection {
 	        ResultSet rs = null;
 	        try {
 	        	Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
+				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 	            Statement stmt = con.createStatement();
 	            rs = stmt.executeQuery(query);
 	        } catch (SQLException | ClassNotFoundException e) {
@@ -28,7 +28,7 @@ public class sql_connection {
 	public void Connect_sql() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-		    con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
+		    con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (SQLException e) {

@@ -1,6 +1,7 @@
 package student;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -18,7 +19,8 @@ import java.awt.ComponentOrientation;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
-
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 public class ADMINLOGIN extends JFrame {
 
 	private JPanel contentPane;
@@ -28,6 +30,7 @@ public class ADMINLOGIN extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -55,41 +58,65 @@ public class ADMINLOGIN extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("HOSTEL MANAGEMENT");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel.setForeground(new Color(153, 50, 204));
+		lblNewLabel.setFont(new Font("Segoe UI Black", Font.BOLD | Font.ITALIC, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(6, 6, 603, 29);
+		lblNewLabel.setBounds(0, 6, 609, 29);
 		contentPane.add(lblNewLabel);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.window);
-		panel.setBounds(86, 89, 423, 201);
+		panel.setForeground(new Color(255, 255, 255));
+		panel.setBackground(new Color(0, 128, 128));
+		panel.setBounds(58, 46, 495, 305);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
 		JLabel usr = new JLabel("USERNAME :");
-		usr.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		usr.setBounds(24, 64, 122, 16);
+		usr.setForeground(new Color(138, 43, 226));
+		usr.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
+		usr.setBounds(47, 97, 122, 16);
 		panel.add(usr);
 
 		JLabel pwd = new JLabel("PASSWORD :");
-		pwd.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		pwd.setBounds(24, 133, 122, 16);
+		pwd.setForeground(new Color(148, 0, 211));
+		pwd.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
+		pwd.setBounds(47, 166, 122, 16);
 		panel.add(pwd);
 
 		username = new JTextField();
-		username.setBounds(130, 59, 264, 29);
+		username.setBounds(153, 92, 264, 29);
 		panel.add(username);
 		username.setColumns(10);
 
 		JLabel lblNewLabel_1_2 = new JLabel("ADMIN LOGIN");
+		lblNewLabel_1_2.setForeground(new Color(128, 0, 128));
 		lblNewLabel_1_2.setBackground(new Color(0, 255, 255));
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel_1_2.setBounds(-42, 10, 544, 16);
+		lblNewLabel_1_2.setFont(new Font("MV Boli", Font.BOLD, 30));
+		lblNewLabel_1_2.setBounds(69, 24, 363, 43);
 		panel.add(lblNewLabel_1_2);
 
 		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(username.getText().equals("admin")&&password.getText().equals("admin"))
+				{
+					JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
+				MENU frame = new MENU();
+				dispose();
+				frame.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "INVALID USERNAME/PASSWORD");
+					username.setText("");
+					password.setText("");
+					username.requestFocus();
+					
+				}
+				
+			}
+		});
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -110,18 +137,24 @@ public class ADMINLOGIN extends JFrame {
 			}
 		});
 		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 16));
-		btnNewButton.setBounds(187, 167, 117, 29);
+		btnNewButton.setForeground(new Color(0, 0, 255));
+		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
+		btnNewButton.setBounds(210, 200, 117, 29);
 		panel.add(btnNewButton);
 		
 		password = new JPasswordField();
-		password.setBounds(130, 128, 264, 29);
+		password.setBounds(153, 161, 264, 29);
 		panel.add(password);
 		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
+		lblNewLabel_2.setBounds(0, 0, 495, 305);
+		panel.add(lblNewLabel_2);
+		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\ABHIJITH_MALLYA\\Desktop\\sahyadri2.jpg"));
-		lblNewLabel_1.setBounds(6, 40, 572, 332);
+		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 609, 384);
 		contentPane.add(lblNewLabel_1);
 	}
 }

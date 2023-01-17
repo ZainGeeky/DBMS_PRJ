@@ -162,48 +162,48 @@ public class MENU extends JFrame {
 		contentPane.add(btnStats);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\Stats.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\Stats.png"));
 		lblNewLabel_2.setBounds(425, 365, 98, 91);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
-		lblNewLabel_2_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\PAY.png"));
+		lblNewLabel_2_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\PAY.png"));
 		lblNewLabel_2_1.setBounds(149, 222, 98, 91);
 		contentPane.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("New label");
-		lblNewLabel_2_2.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\EQIUP.png"));
+		lblNewLabel_2_2.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\EQIUP.png"));
 		lblNewLabel_2_2.setBounds(425, 222, 98, 91);
 		contentPane.add(lblNewLabel_2_2);
 		
 		JLabel lblNewLabel_2_3 = new JLabel("New label");
-		lblNewLabel_2_3.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\Hostel.png"));
+		lblNewLabel_2_3.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\Hostel.png"));
 		lblNewLabel_2_3.setBounds(702, 222, 98, 91);
 		contentPane.add(lblNewLabel_2_3);
 		
 		JLabel lblNewLabel_2_4 = new JLabel("New label");
-		lblNewLabel_2_4.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\Student.png"));
+		lblNewLabel_2_4.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\Student.png"));
 		lblNewLabel_2_4.setBounds(159, 80, 98, 91);
 		contentPane.add(lblNewLabel_2_4);
 		
 		JLabel lblNewLabel_2_5 = new JLabel("New label");
-		lblNewLabel_2_5.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\Room.png"));
+		lblNewLabel_2_5.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\Room.png"));
 		lblNewLabel_2_5.setBounds(425, 80, 98, 91);
 		contentPane.add(lblNewLabel_2_5);
 		
 		JLabel lblNewLabel_2_6 = new JLabel("New label");
-		lblNewLabel_2_6.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\RENT.png"));
+		lblNewLabel_2_6.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\RENT.png"));
 		lblNewLabel_2_6.setBounds(702, 80, 98, 91);
 		contentPane.add(lblNewLabel_2_6);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
 		lblNewLabel_1.setBounds(43, 29, 860, 527);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_3.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_3.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
 		lblNewLabel_3.setBounds(0, 0, 950, 582);
 		contentPane.add(lblNewLabel_3);
 	}

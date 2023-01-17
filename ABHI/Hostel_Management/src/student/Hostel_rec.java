@@ -28,6 +28,7 @@ import java.sql.SQLException;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class Hostel_rec extends JFrame {
 
@@ -44,7 +45,7 @@ public class Hostel_rec extends JFrame {
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
+			con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (SQLException e) {
@@ -230,12 +231,6 @@ public class Hostel_rec extends JFrame {
 		btnDelete.setBounds(570, 340, 117, 29);
 		contentPane.add(btnDelete);
 		
-		JLabel lblNewLabel_1 = new JLabel("HOSTEL RECORD");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_1.setBounds(0, 17, 758, 16);
-		contentPane.add(lblNewLabel_1);
-		
 		JButton btnClear = new JButton("CLEAR");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -297,6 +292,18 @@ public class Hostel_rec extends JFrame {
 		table.getColumnModel().getColumn(1).setPreferredWidth(328);
 		table.getColumnModel().getColumn(2).setPreferredWidth(149);
 		scrollPane.setViewportView(table);
+		
+		JLabel lblHostelRecord = new JLabel("Hostel Record");
+		lblHostelRecord.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHostelRecord.setForeground(new Color(128, 0, 128));
+		lblHostelRecord.setFont(new Font("MV Boli", Font.BOLD, 35));
+		lblHostelRecord.setBounds(68, 0, 650, 40);
+		contentPane.add(lblHostelRecord);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 746, 449);
+		contentPane.add(lblNewLabel_1);
 		Connect();
 		table_load();
 	}

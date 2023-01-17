@@ -45,7 +45,7 @@ public class Rooms_Record extends JFrame {
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (SQLException e) {
@@ -336,7 +336,7 @@ public class Rooms_Record extends JFrame {
 		contentPane.add(lblRoomRecord);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 746, 474);
 		contentPane.add(lblNewLabel_1);
 		Connect();

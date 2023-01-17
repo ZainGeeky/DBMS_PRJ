@@ -47,7 +47,7 @@ public class Equiment_list extends JFrame {
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "zainuddin");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (SQLException e) {
@@ -324,9 +324,10 @@ public class Equiment_list extends JFrame {
 		contentPane.add(lblEquipmentRecord);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 746, 449);
 		contentPane.add(lblNewLabel_1);
+
 		Connect();
 		table_load();
 

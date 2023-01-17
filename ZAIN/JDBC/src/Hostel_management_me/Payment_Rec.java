@@ -169,7 +169,7 @@ public class Payment_Rec extends JFrame {
 		contentPane.add(lblPaymentRecord);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Desktop\\5 DBMS PRGT\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 777, 449);
 		contentPane.add(lblNewLabel_1);
 	}

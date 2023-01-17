@@ -28,6 +28,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class Equiment_list extends JFrame {
 
@@ -263,12 +264,6 @@ public class Equiment_list extends JFrame {
 		btnDelete.setBounds(570, 340, 117, 29);
 		contentPane.add(btnDelete);
 
-		JLabel lblNewLabel_1 = new JLabel("EQUIPMENT RECORD");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_1.setBounds(0, 17, 758, 16);
-		contentPane.add(lblNewLabel_1);
-
 		JButton btnClear = new JButton("CLEAR");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -320,6 +315,19 @@ public class Equiment_list extends JFrame {
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
 		scrollPane.setViewportView(table);
+
+		JLabel lblEquipmentRecord = new JLabel("Equipment Record");
+		lblEquipmentRecord.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEquipmentRecord.setForeground(new Color(128, 0, 128));
+		lblEquipmentRecord.setFont(new Font("MV Boli", Font.BOLD, 35));
+		lblEquipmentRecord.setBounds(54, 0, 650, 40);
+		contentPane.add(lblEquipmentRecord);
+
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(
+				new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 746, 449);
+		contentPane.add(lblNewLabel_1);
 		Connect();
 		table_load();
 

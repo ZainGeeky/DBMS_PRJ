@@ -1,5 +1,6 @@
 package student;
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -29,6 +30,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 
 public class Rooms_Record extends JFrame {
 
@@ -248,12 +250,6 @@ public class Rooms_Record extends JFrame {
 		btnDelete.setBounds(586, 396, 117, 29);
 		contentPane.add(btnDelete);
 
-		JLabel lblNewLabel_1 = new JLabel("ROOMS RECORD");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_1.setBounds(0, 17, 758, 16);
-		contentPane.add(lblNewLabel_1);
-
 		JButton btnClear = new JButton("CLEAR");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -332,6 +328,18 @@ public class Rooms_Record extends JFrame {
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
 		scrollPane.setViewportView(table);
+		
+		JLabel lblRoomRecord = new JLabel("Room Record");
+		lblRoomRecord.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRoomRecord.setForeground(new Color(128, 0, 128));
+		lblRoomRecord.setFont(new Font("MV Boli", Font.BOLD, 35));
+		lblRoomRecord.setBounds(75, 0, 650, 40);
+		contentPane.add(lblRoomRecord);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector copy.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 746, 474);
+		contentPane.add(lblNewLabel_1);
 		Connect();
 		table_load();
 	}

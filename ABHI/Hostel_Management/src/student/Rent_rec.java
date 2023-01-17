@@ -25,6 +25,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 
 public class Rent_rec extends JFrame {
 
@@ -40,7 +41,7 @@ public class Rent_rec extends JFrame {
 	public void Connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
+			con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "abhijith", "abhijith");
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
 		} catch (SQLException e) {
@@ -208,12 +209,6 @@ public class Rent_rec extends JFrame {
 		RENT_DELETE.setBounds(570, 340, 117, 29);
 		contentPane.add(RENT_DELETE);
 
-		JLabel lblNewLabel_1 = new JLabel("RENT RECORD");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_1.setBounds(0, 17, 758, 16);
-		contentPane.add(lblNewLabel_1);
-
 		JButton RENT_CLEAR = new JButton("CLEAR");
 		RENT_CLEAR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -273,6 +268,18 @@ public class Rent_rec extends JFrame {
 			}
 		));
 		scrollPane.setViewportView(table);
+		
+		JLabel lblRentRecord = new JLabel("Rent Record");
+		lblRentRecord.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRentRecord.setForeground(new Color(128, 0, 128));
+		lblRentRecord.setFont(new Font("MV Boli", Font.BOLD, 35));
+		lblRentRecord.setBounds(68, 0, 650, 40);
+		contentPane.add(lblRentRecord);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("D:\\HOSTEL_DBMS\\GALLERY\\colorful-holographic-gradient-background-design-vector.jpg"));
+		lblNewLabel.setBounds(0, 0, 746, 449);
+		contentPane.add(lblNewLabel);
 		Connect();
 		table_load();
 
