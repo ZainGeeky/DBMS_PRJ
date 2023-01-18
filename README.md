@@ -1,5 +1,6 @@
 # DBMS_PRJ
-<hr>img src="OUTPUTS/login.png" height="400" width ="700">
+
+<hr><img src="OUTPUTS/login.png" height="400" width ="700">
 <hr><img src="OUTPUTS/menu.png" height="400" width ="700">
 <hr><img src="OUTPUTS/student.png" height="400" width ="700">
 <hr><img src="OUTPUTS/room.png" height="400" width ="700">
