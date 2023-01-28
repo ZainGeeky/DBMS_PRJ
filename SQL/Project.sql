@@ -23,7 +23,7 @@ HOSTEL_LOCATION VARCHAR(30));
 
 desc hostel;
 CREATE TABLE RENT 
-(--RENT_ID VARCHAR(10) PRIMARY KEY,
+(
 RENT_TITLE VARCHAR(30) PRIMARY KEY,
 RENT_AMOUNT NUMBER(10)
 );
@@ -70,14 +70,7 @@ INSERT INTO PAYMENT VALUES(2,'4SF20CI002','SUITE',30000,'01-01-2002');
 INSERT INTO PAYMENT VALUES(3,'4SF20CI002','PREMIUM',30000,sysdate);
 select * from payment;
 delete from payment;
-/*
-CREATE PROCEDURE calculate_pending_amount(usn IN varchar(10),  rent_title IN varchar(30),  room_id IN int)
-BEGIN
-DECLARE pending_amount NUMBER;
-SET pending_amount = (SELECT RENT_AMOUNT FROM RENT WHERE RENT_TITLE = rent_title) - (SELECT SUM(PAYMENT_AMOUNT) FROM PAYMENT WHERE USN = usn AND RENT_TITLE = rent_title);
-SELECT pending_amount;
-END;
-*/
+
 
 --1. Finding Roommates
 SELECT s2.room_id,s2.USN,s2.student_name
@@ -135,8 +128,21 @@ BEGIN
   END IF;
 END;
 
+--Procedure for finding roomates
+ CREATE OR REPLACE PROCEDURE find_roommates(p_usn IN VARCHAR2) AS
+    roommates VARCHAR2(10);
+BEGIN
+    SELECT USN 
+      INTO roommates 
+      FROM STUDENT 
+     WHERE ROOM_ID = (SELECT ROOM_ID FROM STUDENT WHERE USN = p_usn) 
+       AND USN != p_usn
+       AND ROWNUM = 1;
 
-
+    DBMS_OUTPUT.PUT_LINE('Roommate USN: '|| roommates);
+END;
+--Calling Procedure
+EXECUTE find_roommates('4SF20CI052');
 
 
 
@@ -151,23 +157,3 @@ drop table hostel;
 drop payment;
 DESC EQUIPMENT;
 
-/*
-CREATE OR REPLACE TRIGGER CHKPRICE
-BEFORE INSERT ON FLOWERS FOR EACH ROW
-BEGIN
-IF (:.NEW.FLPRICE<=5) THEN
-    DBMS_OUTPUT.PUT LINE(-20000,'PRICE SHOULD BE MORE THAN 5');
-    
-    END IF;
-END;
-
---Gives error but allows to insert record
-CREATE OR REPLACE TRIGGER CHKPRICE
-BEFORE INSERT ON FLOWERS FOR EACH ROW
-BEGIN
-IF (:.NEW.FLPRICE<=5) THEN
-    RAISE_APPLICATION ERROR(-20000,'PRICE SHOULD BE MORE THAN 5');
-    
-    END IF;
-END;
-*/
