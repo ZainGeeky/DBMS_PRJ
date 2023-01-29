@@ -256,8 +256,8 @@ public class Student_Rec extends JFrame {
 					usn.requestFocus();
 
 				} catch (SQLException e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "INVALID OPERATION");
+					//e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 
 			}
